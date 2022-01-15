@@ -1,0 +1,43 @@
+<link rel="stylesheet" href="https://unpkg.com/blocks.css/dist/blocks.min.css" />
+<!-- <h1>Karina's amazing rectifier</h1>
+<div class="fixed wrapper block">
+    <input type="text" placeholder="Your name"></input>
+</div>
+<button class="accent block">Say hi</button>
+<div> class="results">NO RESULTS</div> -->
+
+<form method=post enctype=multipart/form-data action="/rectify">
+    <input type=file name=file>
+    <input type=number name=x1 value=0>  
+    <input type=number name=y1 value=0> 
+    <input type=number name=x2 value=100> 
+    <input type=number name=y2 value=0> 
+    <input type=number name=x3 value=100> 
+    <input type=number name=y3 value=100> 
+    <input type=number name=x4 value=0> 
+    <input type=number name=y4 value=100> 
+    <input type=submit value=Upload>
+</form>
+
+<!-- Put into css  -->
+<style>
+    body {
+        text-align: center;
+        font-family: system-ui, sans-serif
+    }
+
+    input,
+    button {
+        font-size: 1em;
+        display: block;
+    }
+
+    input {
+        padding: 6px 12px
+    }
+
+    button.block.accent {
+        margin: 12px auto 3em auto;
+    }
+</style>
+<script src="/static/script.js"></script>

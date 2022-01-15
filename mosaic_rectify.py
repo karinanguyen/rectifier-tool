@@ -1,7 +1,6 @@
 import matplotlib 
 import matplotlib.pyplot as plt 
 import numpy as np
-import cv2 
 import re 
 import pickle
 import skimage.io as skio
@@ -9,29 +8,6 @@ import skimage.draw as draw
 
 def save(img, name):
     skio.imsave(name, img)
-
-
-# PART 1. ANNOTATIONS FOR IMAGES 
-
-def define_points(img, points_num, img_name): 
-    # Manual selection of points 
-    points = []
-    plt.imshow(img)
-    points = plt.ginput(points_num, 0)
-    plt.close()
-
-    # Saving points file in the folder called "points"
-    pickle_name = re.split("\.", img_name)[0] + ".points"
-    pickle.dump(points, open("points/" + pickle_name, "wb"))
-    return points
-
-
-def load_points(img_name):
-    # Retrieving points file of the image_name from the "points" folder 
-    points = pickle.load(open("points/" + img_name + ".points", "rb"))
-    return np.array(points)
-
-
 
 
 # PART 2. RECOVERING HOMOGRAPHY 
@@ -67,30 +43,6 @@ def computeH(im1_pts,im2_pts):
     return H 
 
 
-# PART 3. IMAGE WARPING & MOSAICING   
-
-# Since homography only relies to the available information of the original image, the projection 
-# might stretch certain elements in the image to compensate for the missing information. This can be done through a set 
-# of transformation operations of the image (stretching to the left / right of the corners) 
-# Warping will try to stretch the destiny image into the original image, using the homography H matrix. 
-
-
-#HELPER FUNCTIONS 
-def boundary_box(img2, H):
-    # Defining image corners after warping 
-    shape = img2.shape 
-    y_max = shape[0]
-    x_max = shape[1] 
-
-    edge_btm_left = np.array([[0], [y_max], [1]]) 
-    edge_top_left = np.array([[0], [0], [1]]) 
-    edge_btm_right = np.array([[x_max], [y_max], [1]]) 
-    edge_top_right = np.array([[x_max], [0], [1]]) 
-
-    edges = [edge_btm_left, edge_btm_right, edge_top_left, edge_top_right]
-    edges = [H @ point for point in edges] 
-    edges = [point / point[2] for point in edges] 
-    return edges 
 
 def draw_mask(right_edge,left_edge, bottom_edge, top_edge): 
     #Drawing edges 
@@ -98,104 +50,6 @@ def draw_mask(right_edge,left_edge, bottom_edge, top_edge):
                         [0, 0, bottom_edge + abs(top_edge), bottom_edge + abs(top_edge)]) 
     mask = np.matrix(np.vstack([mask, np.ones(len(mask[0]))]))
     return mask 
-
-def alpha_mask(img1): 
-    #For blending in warping 
-    pi = 3.141592628/2 
-    alpha = np.cos(np.linspace(0, pi, int(img1.shape[1]/2))) ** 8
-    alpha = np.hstack([np.ones(int(img1.shape[1]/2), dtype="float64"), alpha])
-    maskAlpha = alpha
-    for _ in range(img1.shape[0] - 1):
-        maskAlpha = np.vstack([maskAlpha, alpha])
-    gray = maskAlpha.reshape((maskAlpha.shape[0], maskAlpha.shape[1], 1))
-    maskAlpha = np.dstack([gray, gray, gray]) 
-    return maskAlpha 
-
-
-#WARPING 
-def warpImage(img1, img2, H):
-    edges = boundary_box(img2, H)
-
-    #STRETCHING 
-    # Images stretched to the available corners (left / right) that are defined by the above function boundary_box 
-    transformed_x_max = max(edges, key=lambda x: x[0])[0].astype(np.int)
-    transformed_x_min = min(edges, key=lambda x: x[0])[0].astype(np.int)
-
-    transformed_y_max = max(edges, key=lambda x: x[1])[1].astype(np.int)
-    transformed_y_min = min(edges, key=lambda x: x[1])[1].astype(np.int)
-
-    bottom_edge, right_edge, top_edge, left_edge = [transformed_y_max[0, 0], transformed_x_max[0, 0], transformed_y_min[0, 0], transformed_x_min[0, 0]]
-
-    right_edge = max(right_edge, img1.shape[1], img2.shape[1])
-    bottom_edge = max(bottom_edge, img1.shape[0], img2.shape[0])
-
-    # MASK 
-    mask = draw_mask(right_edge,left_edge, bottom_edge, top_edge)  
-    mask_inv = np.linalg.inv(H) @ mask   
-    colmask, rowmask, w = mask_inv
-    colmask = np.squeeze(np.asarray(colmask))
-    rowmask = np.squeeze(np.asarray(rowmask))
-    w = np.squeeze(np.asarray(w))
-    colmask = (colmask / w).astype(np.int)
-    rowmask = (rowmask / w).astype(np.int)
-
-    #OVERLAP MOSAICING 
-    # To avoid repeating the warping on the overlapping images  
-    final_img = np.zeros((bottom_edge + abs(top_edge) + 1, right_edge + abs(left_edge) + 1, 3), dtype="uint8")
-    overlap = np.where((colmask >= 0) & (colmask < img2.shape[1]) & (rowmask >= 0) & (rowmask < img2.shape[0]))
-    rowmask = rowmask[overlap] 
-    colmask = colmask[overlap]
-    
-
-    x_init, y_init, _ = draw_mask(right_edge,left_edge, bottom_edge, top_edge) 
-    x_init = np.squeeze(np.asarray(x_init))
-    x_init = x_init[overlap].astype(np.int) 
-
-    #Offset X 
-    diff_x = abs(min(left_edge, 0)) 
-    x_init += diff_x 
-    img1_x = img1.shape[1] + diff_x 
-
-    y_init = np.squeeze(np.asarray(y_init))
-    y_init = y_init[overlap].astype(np.int)
-
-    #Offset Y
-    diff_y = abs(min(top_edge, 0))
-    y_init += diff_y
-    img1_y = img1.shape[0] + diff_y
-
-    #Placing images together 
-    final_img[y_init, x_init] = img2[rowmask, colmask]
-    final_img[diff_y : img1_y, diff_x : img1_x] = img1
-
-    # BLENDING 
-    maskAlpha = alpha_mask(img1) 
-    alpha_img1 = img1 * maskAlpha
-    final_img[diff_y : img1_y, diff_x : img1_x] = alpha_img1 * maskAlpha + final_img[diff_y : img1_y, diff_x : img1_x] * (1 - maskAlpha)
-    
-    return final_img
-
-
-#MOSAICING 
-def warp(img1, img2, points = True):
-    #Read images 
-    left_img = skio.imread("img/" + img1 + ".jpg") 
-    right_img = skio.imread("img/" + img2 + ".jpg") 
-
-    #Load / define points 
-    if points is False:
-        define_points(left_img, 4, img1)
-        define_points(right_img, 4, img2)
-    left_pts = load_points(img1)
-    right_pts = load_points(img2)
-
-    #Compute homography 
-    H = computeH(left_pts, right_pts)
-    warp = warpImage(left_img, right_img, H)
-
-    #Show final result 
-    skio.imshow(warp)
-    skio.show()   
 
 
 
@@ -272,14 +126,16 @@ def rectifyImage(img, img_pts, H):
 
 
 
-def rectify(img, points = True):
+def rectify(img_name, points):
     #Read image 
-    image = skio.imread("img/" + img + ".jpg") 
+    image = skio.imread(img_name) 
 
     #Load points 
-    if points is False:
-        define_points(image, 4, img)
-    img_pts = load_points(img)
+    #pass points as a parameter, points is a list of tuples 
+    img_pts = points 
+    # if points is False:
+    #     define_points(image, 4, img)
+    # img_pts = load_points(img)
  
     #Squared Rectification 
     min_dim = min(image.shape[0], image.shape[1])
@@ -288,11 +144,9 @@ def rectify(img, points = True):
 
     #Compute Rectification 
     rectified = rectifyImage(image, img_pts, H)
-    skio.imshow(rectified)
-    skio.show() 
+    save(rectified, img_name)
+    # skio.imshow(rectified)
+    # skio.show() 
 
-#warp("swiss_mos1", "swiss_mos2", points = False)  
-#warp("syria2_mos1", "syria2_mos2", points = False) 
-#warp("syr_mos1", "syr_mos2", points = False)
-#rectify("syria5", points = False)
-    
+
+# rectify("van_gogh.jpg", points = False)
