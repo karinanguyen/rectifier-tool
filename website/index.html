@@ -6,16 +6,19 @@
 <button class="accent block">Say hi</button>
 <div> class="results">NO RESULTS</div> -->
 
+<canvas id="image-preview" style='max-width: 100%; max-height: 80vh;'></canvas>
+<canvas id="image-output" style='max-width: 100%; max-height: 80vh;'></canvas>
+
 <form method=post enctype=multipart/form-data action="/rectify">
-    <input type=file name=file>
-    <input type=number name=x1 value=0>  
-    <input type=number name=y1 value=0> 
-    <input type=number name=x2 value=100> 
-    <input type=number name=y2 value=0> 
-    <input type=number name=x3 value=100> 
-    <input type=number name=y3 value=100> 
-    <input type=number name=x4 value=0> 
-    <input type=number name=y4 value=100> 
+    <input id='imageLoader' type=file name=file>
+    <input type=number name=x1 value=0>
+    <input type=number name=y1 value=0>
+    <input type=number name=x2 value=100>
+    <input type=number name=y2 value=0>
+    <input type=number name=x3 value=100>
+    <input type=number name=y3 value=100>
+    <input type=number name=x4 value=0>
+    <input type=number name=y4 value=100>
     <input type=submit value=Upload>
 </form>
 

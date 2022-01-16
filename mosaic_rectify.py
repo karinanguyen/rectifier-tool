@@ -130,13 +130,9 @@ def rectify(img_name, points):
     #Read image 
     image = skio.imread(img_name) 
 
-    #Load points 
-    #pass points as a parameter, points is a list of tuples 
+    #Load points, points is a list of tuples 
     img_pts = points 
-    # if points is False:
-    #     define_points(image, 4, img)
-    # img_pts = load_points(img)
- 
+
     #Squared Rectification 
     min_dim = min(image.shape[0], image.shape[1])
     square = [[0, 0], [0, min_dim], [min_dim, min_dim], [min_dim, 0]]
@@ -145,8 +141,7 @@ def rectify(img_name, points):
     #Compute Rectification 
     rectified = rectifyImage(image, img_pts, H)
     save(rectified, img_name)
-    # skio.imshow(rectified)
-    # skio.show() 
+
 
 
 # rectify("van_gogh.jpg", points = False)
