@@ -1,0 +1,23 @@
+body {
+    text-align: center;
+    font-family: system-ui, sans-serif
+}
+
+
+.input-form {
+    visibility: hidden !important;
+}
+
+input,
+button {
+    font-size: 1em;
+    display: block;
+}
+
+input {
+    padding: 6px 12px
+}
+
+button.block.accent {
+    margin: 12px auto 3em auto;
+}

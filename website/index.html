@@ -1,4 +1,14 @@
-<link rel="stylesheet" href="https://unpkg.com/blocks.css/dist/blocks.min.css" />
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8"> 
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+</head>
+
+
 <!-- <h1>Karina's amazing rectifier</h1>
 <div class="fixed wrapper block">
     <input type="text" placeholder="Your name"></input>
@@ -9,38 +19,21 @@
 <canvas id="image-preview" style='max-width: 100%; max-height: 80vh;'></canvas>
 <canvas id="image-output" style='max-width: 100%; max-height: 80vh;'></canvas>
 
-<form method=post enctype=multipart/form-data action="/rectify">
-    <input id='imageLoader' type=file name=file>
-    <input type=number name=x1 value=0>
-    <input type=number name=y1 value=0>
-    <input type=number name=x2 value=100>
-    <input type=number name=y2 value=0>
-    <input type=number name=x3 value=100>
-    <input type=number name=y3 value=100>
-    <input type=number name=x4 value=0>
-    <input type=number name=y4 value=100>
-    <input type=submit value=Upload>
-</form>
+<!-- <div class="input-form"> -->
+    <form method=post enctype=multipart/form-data action="/rectify">
+        <input id='imageLoader' type=file name=file>
+        <input  type="hidden" type=number name=x1 value=0>
+        <input  type="hidden" type=number name=y1 value=0>
+        <input  type="hidden" type=number name=x2 value=100>
+        <input  type="hidden" type=number name=y2 value=0>
+        <input  type="hidden" type=number name=x3 value=100>
+        <input  type="hidden" type=number name=y3 value=100>
+        <input  type="hidden" type=number name=x4 value=0>
+        <input  type="hidden" type=number name=y4 value=100>
+        <input  type=submit value=Upload>
+    </form>
+<!-- </div> -->
 
-<!-- Put into css  -->
-<style>
-    body {
-        text-align: center;
-        font-family: system-ui, sans-serif
-    }
-
-    input,
-    button {
-        font-size: 1em;
-        display: block;
-    }
-
-    input {
-        padding: 6px 12px
-    }
-
-    button.block.accent {
-        margin: 12px auto 3em auto;
-    }
-</style>
 <script src="/static/script.js"></script>
+
+</html>
