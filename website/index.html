@@ -2,21 +2,77 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <meta charset="utf-8"> 
-    <link type="text/css" href="/static/styles.css" rel="stylesheet"> 
+    <meta charset="utf-8">
+    <link type="text/css" href="/static/styles.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
 </head>
 
 <header>
     <nav class='topnav'>
-        <a href="">About</a>
-        <a href="">About</a>
-
+        <a href=""> About </a>
+        <a href="">How does it work</a>
     </nav>
 </header>
 
-<h1> Rectify </h1>
+
+<div class="name">
+    <h1> Rectify </h1>
+</div>
+
+<!-- <div class="row">
+    <div class="column left">
+        <p> /ˈrektəˌfī/ </p>
+    </div>
+    <div class="column right">
+        <p> 
+            A simple open-source tool to look at image details in a new perspective. 
+        </p>
+        <p>
+            It is particularly useful for visual investigative analysis and evidence verification in open-source research.
+        </p>
+    </div>
+</div> -->
+
+<div class="row">
+    <div class="column left">
+        <p>/ˈrektəˌfī/</p>
+    </div>
+    <div class="column right">
+        <div class="description">
+            <p> Look at visual details in imagery from a new perspective. 
+            </p> This open-source tool is particularly useful for visual investigations and evidence verification in open-source
+            research.</p>
+        </div>
+
+        <h3>Case: Syrian Hospital</h3>
+
+        <h3>Try it yourself! </h3>
+
+
+
+
+
+
+        <canvas id="image-preview" style='max-width: 100%; max-height: 80vh;'></canvas>
+        <canvas id="image-output" style='max-width: 100%; max-height: 80vh;'></canvas>
+
+        <!-- <div class="input-form"> -->
+        <form method=post enctype=multipart/form-data action="/rectify">
+            <input id='imageLoader' type=file name=file>
+            <input type="hidden" type=number name=x1 value=0>
+            <input type="hidden" type=number name=y1 value=0>
+            <input type="hidden" type=number name=x2 value=100>
+            <input type="hidden" type=number name=y2 value=0>
+            <input type="hidden" type=number name=x3 value=100>
+            <input type="hidden" type=number name=y3 value=100>
+            <input type="hidden" type=number name=x4 value=0>
+            <input type="hidden" type=number name=y4 value=100>
+            <input type=submit value=Upload>
+        </form>
+        <!-- </div> -->
+    </div>
+</div>
 
 
 <!-- <h1>Karina's amazing rectifier</h1>
@@ -26,23 +82,7 @@
 <button class="accent block">Say hi</button>
 <div> class="results">NO RESULTS</div> -->
 
-<canvas id="image-preview" style='max-width: 100%; max-height: 80vh;'></canvas>
-<canvas id="image-output" style='max-width: 100%; max-height: 80vh;'></canvas>
 
-<!-- <div class="input-form"> -->
-    <form method=post enctype=multipart/form-data action="/rectify">
-        <input id='imageLoader' type=file name=file>
-        <input  type="hidden" type=number name=x1 value=0>
-        <input  type="hidden" type=number name=y1 value=0>
-        <input  type="hidden" type=number name=x2 value=100>
-        <input  type="hidden" type=number name=y2 value=0>
-        <input  type="hidden" type=number name=x3 value=100>
-        <input  type="hidden" type=number name=y3 value=100>
-        <input  type="hidden" type=number name=x4 value=0>
-        <input  type="hidden" type=number name=y4 value=100>
-        <input  type=submit value=Upload>
-    </form>
-<!-- </div> -->
 
 <script src="/static/script.js"></script>
 
