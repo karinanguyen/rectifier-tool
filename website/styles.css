@@ -21,3 +21,22 @@ input {
 button.block.accent {
     margin: 12px auto 3em auto;
 }
+
+.topnav {
+    overflow: hidden;
+    text-decoration: none;
+  } 
+
+.topnav a {
+    float: right;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+h1 {
+    font-size: 79px;
+}
+

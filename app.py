@@ -9,6 +9,8 @@ app = Flask(__name__, static_url_path='')
 def home():
     return send_file('./website/index.html')
 
+
+
 @app.route('/static/<path:path>', methods=['GET'])
 def static_files(path):
     return send_from_directory('./website', path)
