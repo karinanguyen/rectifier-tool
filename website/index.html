@@ -57,9 +57,12 @@
         <canvas id="image-preview" style='max-width: 100%; max-height: 80vh;'></canvas>
         <canvas id="image-output" style='max-width: 100%; max-height: 80vh;'></canvas>
 
-        <!-- <div class="input-form"> -->
         <form method=post enctype=multipart/form-data action="/rectify">
-            <input id='imageLoader' type=file name=file>
+            <div class = "drop-image">
+                <input id='imageLoader' type=file name=file> 
+                <label class='label'> Choose Image to Upload</label>
+            </div>
+            <!-- <input id='imageLoader' type="file" style="display:none;"/>  -->
             <input type="hidden" type=number name=x1 value=0>
             <input type="hidden" type=number name=y1 value=0>
             <input type="hidden" type=number name=x2 value=100>
@@ -68,23 +71,27 @@
             <input type="hidden" type=number name=y3 value=100>
             <input type="hidden" type=number name=x4 value=0>
             <input type="hidden" type=number name=y4 value=100>
-            <input type=submit value=Upload>
+            <input type=submit value=Rectify>
         </form>
-        <!-- </div> -->
     </div>
 </div>
 
 
-<!-- <h1>Karina's amazing rectifier</h1>
-<div class="fixed wrapper block">
-    <input type="text" placeholder="Your name"></input>
-</div>
-<button class="accent block">Say hi</button>
-<div> class="results">NO RESULTS</div> -->
+
+
 
 
 
 <script src="/static/script.js"></script>
+<!-- <script>
+    $('#button').click(function(){
+   $("input[type='file']").trigger('click');
+})
+
+$("input[type='file']").change(function(){
+   $('#val').text(this.value.replace(/C:\\fakepath\\/i, ''))
+}) 
+</script> -->
 
 
 </html>
