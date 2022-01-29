@@ -8,8 +8,19 @@ const form = document.querySelector('form');
 const canvasOutput = document.getElementById('image-output');
 const ctxOutput = canvasOutput.getContext('2d');
 
+const rectifyButton = document.getElementById('submit'); 
+
 function handleImage() {
+    
     console.log(fileInput.files[0])
+    if (fileInput.files.length !== 0) {
+        document.querySelector(".drop-image").style.display = 'none';
+        rectifyButton.style.visibility = 'visible';
+    } else {
+        console.log('nothing') 
+    }
+
+
     var reader = new FileReader();
     reader.onload = function (event) {
         var img = new Image();
@@ -63,6 +74,7 @@ form.onsubmit = function (event) {
             ctxOutput.drawImage(img, 0, 0);
         }
         img.src = URL.createObjectURL(imageBlob);
+        rectifyButton.style.visibility = 'hidden';
     });
 }
 

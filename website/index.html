@@ -20,20 +20,6 @@
     <h1> Rectify </h1>
 </div>
 
-<!-- <div class="row">
-    <div class="column left">
-        <p> /ˈrektəˌfī/ </p>
-    </div>
-    <div class="column right">
-        <p> 
-            A simple open-source tool to look at image details in a new perspective. 
-        </p>
-        <p>
-            It is particularly useful for visual investigative analysis and evidence verification in open-source research.
-        </p>
-    </div>
-</div> -->
-
 <div class="row">
     <div class="column left">
         <p>/ˈrektəˌfī/</p>
@@ -50,18 +36,11 @@
 
         <h3>Try it yourself! </h3>
 
-
-
-
-        <canvas id="image-preview" style='max-width: 100%; max-height: 80vh;'></canvas>
-        <canvas id="image-output" style='max-width: 100%; max-height: 80vh;'></canvas>
-
         <form method=post enctype=multipart/form-data action="/rectify">
             <div class="drop-image">
                 <input id='imageLoader' type=file name=file>
                 <p class='label'> Choose Image to Upload</p>
             </div>
-            <!-- <input id='imageLoader' type="file" style="display:none;"/>  -->
             <input type="hidden" type=number name=x1 value=0>
             <input type="hidden" type=number name=y1 value=0>
             <input type="hidden" type=number name=x2 value=100>
@@ -70,30 +49,19 @@
             <input type="hidden" type=number name=y3 value=100>
             <input type="hidden" type=number name=x4 value=0>
             <input type="hidden" type=number name=y4 value=100>
-            <input type=submit value=Rectify>
+            <canvas id="image-preview" style='max-width: 100%; max-height: 60vh;'></canvas>
+            <canvas id="image-output" style='max-width: 100%; max-height: 60vh;'></canvas>
+            <input  id='submit' type=submit value=Rectify>
         </form>
+    
+     <!-- TO-DO: Add button to start a new rectification -->
+
+    <!-- TO-DO: Add Instructions (JPG) --> 
+
+
     </div>
+
 </div>
-
-<script>
-    let file = document.getElementById('imageLoader')
-    if (file.files.length ===0) {
-        console.log('image uploaded')
-    }
-    // var $img = $('img');
-    // if (img.length > 0 && !img.get(0).complete) {
-    //     img.on('load', triggerAction);
-    // }
-
-    // function triggerAction() {
-    //     alert('img has been loaded');
-    // }
-
-
-</script>
-
-
-
 
 
 
