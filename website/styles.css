@@ -1,9 +1,28 @@
+
+
+@font-face {
+    font-family: "Fin-Mid";
+    src: url(./fonts/TestFinancierDisplay-Medium.otf);
+} 
+
+@font-face {
+    font-family: "Fin-Reg";
+    src: url(./fonts/TestFinancierDisplay-Regular.otf);
+}  
+
+::selection {
+    background: #1304C5;
+    color: #ffffff;
+} 
+
+
 body {
     text-align: center;
     font-family: system-ui, sans-serif;
-    /* max-width: 100%; */
     width: 70%;
     margin: 0 auto; 
+    background-color: #F9FAFB;
+    font-family: 'DM Serif Text', serif;
 }
 * {
     box-sizing: border-box;
@@ -27,6 +46,7 @@ button.block.accent {
     overflow: hidden;
     text-decoration: none;
     margin: 20px;
+    font-family: 'IBM Plex Mono', monospace; 
   } 
 
 .topnav a {
@@ -40,6 +60,14 @@ button.block.accent {
 
 h1 {
     text-align: left;
+    font-size: 36px;
+}
+
+.cases {
+    font-family: 'IBM Plex Mono', monospace;  
+    font-size: 20px;
+    font-weight: 100;
+    color: #1304C5;
 }
 
 .name{
@@ -72,7 +100,21 @@ h1 {
 }
 
 .description {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    font-family: "Fin-Reg";
+    line-height: 10px;
+    font-size: 20px;
+}
+.decorator {
+    font-family: "Fin-Mid"; 
+    font-size: 20px;
+    color: #C0B3B3; 
+}
+
+.try {
+    font-size: 24px; 
+    color: #1304C5;
+    letter-spacing: 0.3px;
 }
 
 #imageLoader {
@@ -102,12 +144,14 @@ input[type='submit'] {
 }
 
 .drop-image {
-    background-color: rgba(221, 206, 238, 0.644);
+    background-color: rgba(234, 237, 247, 0.596);
     width: 100vh;
     height: 300px;
     border-radius: 10px;
     border-style: dashed;
-    border-color: rgb(118, 74, 219);
+
+    border-color: #1404c5a1;
+    border-width: 1px;
     max-width: 100%;
     position: relative;
 }
@@ -120,15 +164,23 @@ input[type='submit'] {
 }
 
 .drop-image:hover{
-    background-color: rgba(221, 206, 238, 0.844);
+    background-color: rgba(199, 207, 240, 0.24);
     cursor: pointer;
 }
 
 .label {
-    color:rgb(118, 74, 219);
-    font-size: 20px;
+    /* color:rgb(118, 74, 219); */
+    color: #1404c5a1; 
+    font-weight: 100;
+    font-size: 18px;
+    font-family: 'IBM Plex Mono', monospace; 
+
 }
 
 canvas {
     margin-right: 20px;
 }
+
+/* 
+TODO: Rectify button styling 
+*/
