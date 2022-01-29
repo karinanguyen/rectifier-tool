@@ -46,7 +46,7 @@ function handleImage() {
             document.querySelector('[name=y' + count + ']').value = y;
             count++;
 
-            ctx.fillStyle = 'red';
+            ctx.fillStyle = '#ADFF00';
 
             ctx.beginPath();
             ctx.arc(x, y, 4 * scaled, 0, 2 * Math.PI);
