@@ -9,13 +9,20 @@ const canvasOutput = document.getElementById('image-output');
 const ctxOutput = canvasOutput.getContext('2d');
 
 const rectifyButton = document.getElementById('submit'); 
+const imagePreview = document.getElementById('image-preview'); 
+const imageRectified = document.getElementById('image-output'); 
+// const restartButton = document.getElementsByClassName('restart'); 
 
 function handleImage() {
     
     console.log(fileInput.files[0])
     if (fileInput.files.length !== 0) {
         document.querySelector(".drop-image").style.display = 'none';
-        rectifyButton.style.visibility = 'visible';
+        document.getElementById("restart").style.display = 'none'; 
+
+        // rectifyButton.style.visibility = 'visible';
+        rectifyButton.style.display = 'block'; 
+        imagePreview.style.display='revert'; 
     } else {
         console.log('nothing') 
     }
@@ -74,9 +81,13 @@ form.onsubmit = function (event) {
             ctxOutput.drawImage(img, 0, 0);
         }
         img.src = URL.createObjectURL(imageBlob);
-        rectifyButton.style.visibility = 'hidden';
+        rectifyButton.style.display='none';
+        imageRectified.style.display='revert';
+        document.getElementById("restart").style.display = 'revert';  
     });
 }
+
+
 
 
 

@@ -144,3 +144,5 @@ def rectify(img_name, points):
 
 
 # TO-DO: Handle one-channel images 
+
+# TO-DO: Handle other formats: png, jpeg 

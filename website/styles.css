@@ -24,6 +24,8 @@ body {
     font-family: 'DM Serif Text', serif;
     min-height: 100vh;
     padding: 0;
+    position: relative;
+    padding-bottom: 50px;
 }
 
 main{
@@ -56,9 +58,10 @@ button.block.accent {
     margin: 20px;
     font-family: 'IBM Plex Mono', monospace; 
     display: flex;
-    align-items: cemter;
+    align-items: center;
     justify-content: space-between; 
-    margin-top: 40px;
+    margin-top: 0;
+    padding-top: 40px;
     margin-bottom: 60px;
   } 
 
@@ -118,7 +121,7 @@ h1 {
 .description {
     margin-bottom: 60px;
     font-family: "Fin-Reg";
-    line-height: 10px;
+    line-height: 1.2em;
     font-size: 20px;
 }
 .decorator {
@@ -153,11 +156,6 @@ input[type='file'] {
     opacity:0 ; 
   }
 
-input[type='submit'] {
-    visibility: hidden;
-    margin-top: 20px;
-    margin-bottom: 50px;
-}
 
 .drop-image {
     background-color: rgba(234, 237, 247, 0.596);
@@ -200,19 +198,24 @@ canvas {
 
 footer {
     width: 100%;
-    height: 5.5rem;           
+    height: 50px;
+    /* height: 5.5rem;            */
     background-color: rgb(118, 74, 219);
+    position: absolute; 
+    bottom: 0;
   } 
-/* 
-TODO: Rectify button styling 
-*/
 
-input[type=submit] {
+
+input[type='submit']{
+    display: none;
+    margin-top: 30px;
+} 
+
+input[type=submit], #restart {
     padding: 9px 30px;
     background: #0A20E8;
     border: 0 none;
     cursor: pointer;
-    /* -webkit-border-radius: 5px; */
     border-radius: 10px;
     color: white;
     font-family: 'IBM Plex Mono', monospace;
@@ -221,10 +224,20 @@ input[type=submit] {
     transition: all 0.3s ease 0s;
 } 
 
-input[type=submit]:hover {
+input[type=submit]:hover, #restart:hover {
     background-color: #A7F208;
-    /* box-shadow: 0px 15px 20px rgb(46 229 157 / 40%); */
     color: #fff;
     transform: translateY(-3px);
     color: black;
+}
+
+#restart {
+    display: none;
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+
+canvas {
+    display: none; 
 }
