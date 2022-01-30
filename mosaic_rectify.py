@@ -143,5 +143,4 @@ def rectify(img_name, points):
     save(rectified, img_name)
 
 
-
-# rectify("van_gogh.jpg", points = False)
+# TO-DO: Handle one-channel images 
