@@ -59,12 +59,16 @@ function handleImage() {
             ctx.arc(x, y, 4 * scaled, 0, 2 * Math.PI);
             ctx.fill();
         };
+        // document.getElementById('load').style.display = 'revert'; 
+        
+
     }
     reader.readAsDataURL(fileInput.files[0]);
 }
 
 form.onsubmit = function (event) {
     event.preventDefault();
+    // document.getElementById('load').style.display = 'revert'; 
 
     const formData = new FormData(form);
 
@@ -87,6 +91,10 @@ form.onsubmit = function (event) {
     });
 }
 
+
+function spinner() {
+    document.getElementById("load").style.display = "block";
+}  
 
 
 
