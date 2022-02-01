@@ -85,17 +85,21 @@ form.onsubmit = function (event) {
             ctxOutput.drawImage(img, 0, 0);
         }
         img.src = URL.createObjectURL(imageBlob);
-        rectifyButton.style.display='none';
+        // rectifyButton.style.display='none';
         imageRectified.style.display='revert';
-        document.getElementById("restart").style.display = 'revert';  
+        document.getElementById("restart").style.display = 'revert';
+        stopSpinner(); 
     });
 }
 
-
-function spinner() {
+function startSpinner() {
     document.getElementById("load").style.display = "block";
-}  
+    rectifyButton.style.display = 'none';
+}
 
+function stopSpinner() {
+    document.getElementById("load").style.display = "none";
+} 
 
 
 

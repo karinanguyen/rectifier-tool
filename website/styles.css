@@ -259,6 +259,7 @@ canvas {
     background-repeat: no-repeat;
     position: relative;
     animation: db4-0 1s linear infinite alternate;
+    margin-bottom: 20px;
   }
   .loading:before {
     content: "";
