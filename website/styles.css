@@ -22,7 +22,7 @@ body {
     background-color: #F9FAFB;
     margin:0;
     font-family: 'DM Serif Text', serif;
-    min-height: 100vh;
+    min-height: 120vh;
     padding: 0;
     position: relative;
     padding-bottom: 50px;
@@ -198,12 +198,27 @@ canvas {
 
 footer {
     width: 100%;
-    height: 50px;
-    /* height: 5.5rem;            */
-    background-color: rgb(118, 74, 219);
+    height: 170px;
+    background-color: #0e1eaf; 
+    color: white;
     position: absolute; 
     bottom: 0;
   } 
+
+.footer-text {
+    text-align: left; 
+    margin-top: 40px;
+    margin-left: 230px;
+    font-family: "Fin-Reg";
+    /* display: flex;
+    align-items: center;
+    justify-content: space-around;    */
+
+}
+.footer-text-1 {
+    display: flex;
+    align-items: center;
+}
 
 
 input[type='submit']{
