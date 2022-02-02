@@ -22,7 +22,7 @@ body {
     background-color: #F9FAFB;
     margin:0;
     font-family: 'DM Serif Text', serif;
-    min-height: 120vh;
+    min-height: 150vh;
     padding: 0;
     position: relative;
     padding-bottom: 50px;
@@ -31,6 +31,7 @@ body {
 main{
     width: 70%;
     margin: 0 auto; 
+    margin-bottom: 150px;
 }
 
 
@@ -78,7 +79,7 @@ button.block.accent {
 
 h1 {
     text-align: left;
-    font-size: 36px;
+    font-size: 38px;
 }
 
 .cases {
@@ -121,8 +122,8 @@ h1 {
 .description {
     margin-bottom: 60px;
     font-family: "Fin-Reg";
-    line-height: 1.2em;
-    font-size: 20px;
+    line-height: 0.5em;
+    font-size: 24px;
 }
 .decorator {
     font-family: "Fin-Mid"; 
@@ -131,7 +132,7 @@ h1 {
 }
 
 .try {
-    font-size: 24px; 
+    font-size: 28px; 
     color: #1304C5;
     letter-spacing: 0.3px;
 }
@@ -195,6 +196,9 @@ canvas {
     margin-right: 20px;
 }
 
+#footer {
+    margin-top: 80px;
+}
 
 footer {
     width: 100%;
@@ -207,9 +211,10 @@ footer {
 
 .footer-text {
     text-align: left; 
-    margin-top: 40px;
+    margin-top: 45px;
     margin-left: 230px;
-    font-family: "Fin-Reg";
+    font-family:  'IBM Plex Mono', monospace; 
+    letter-spacing: -0.5px;
     /* display: flex;
     align-items: center;
     justify-content: space-around;    */
@@ -262,6 +267,7 @@ canvas {
 
 
 .loading {
+    color:  #0e1eaf; 
     display: none;
     width: 40px;
     height: 20px;
@@ -275,8 +281,11 @@ canvas {
     position: relative;
     animation: db4-0 1s linear infinite alternate;
     margin-bottom: 20px;
+    margin-top: 40px;
+
   }
   .loading:before {
+    color:  #0e1eaf; 
     content: "";
     position: absolute;
     width: 8px;
