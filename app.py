@@ -1,6 +1,8 @@
 # backend server
-from flask import Flask, request, send_file, send_from_directory
-import os 
+from flask import Flask, after_this_request, request, send_file, send_from_directory, after_this_request
+import os
+import shlex
+from random import randint
 from mosaic_rectify import rectify
 
 app = Flask(__name__, static_url_path='')
@@ -31,20 +33,28 @@ def upload_file():
     if file.filename == '':
         return 'No selected file'
     if file and allowed_file(file.filename):
-        # NEED TO BE FIXED 
-        filename = 'test_image.jpg'
-        filepath = os.path.join('/tmp', filename)
+        filepath = os.path.join('/tmp', file.filename)
         file.save(filepath)
+
+        converted_filepath = '/tmp/test_image_{}.jpg'.format(randint(0, 1e6))
+        os.system('convert {} {}'.format(shlex.quote(filepath), converted_filepath))
+        os.remove(filepath)
 
         coords = [
             (int(request.form['x1']), int(request.form['y1'])), 
             (int(request.form['x2']), int(request.form['y2'])), 
             (int(request.form['x3']), int(request.form['y3'])), 
             (int(request.form['x4']), int(request.form['y4'])) 
-        ]   
+        ]
 
-        rectify(filepath, coords)
-        return send_file(filepath)
+        @after_this_request
+        def remove_temp_file(response):
+            os.remove(converted_filepath)
+            return response
+
+        rectify(converted_filepath, coords)
+        return send_file(converted_filepath)
+    return 'Unknown image format'
     
 
 if __name__ == '__main__':
