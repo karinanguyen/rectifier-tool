@@ -122,7 +122,7 @@ h1 {
 .description {
     margin-bottom: 60px;
     font-family: "Fin-Reg";
-    line-height: 0.5em;
+    /* line-height: 0.5em; */
     font-size: 24px;
 }
 .decorator {
@@ -262,10 +262,6 @@ canvas {
     display: none; 
 }
 
-
-
-
-
 .loading {
     color:  #0e1eaf; 
     display: none;
@@ -350,4 +346,17 @@ canvas {
 
   h3 {
       line-height: 1.3em;
+  }
+
+  @media only screen and (max-width: 600px) { 
+    .decorator{
+        display: none;
+    }
+    .instructions{
+        font-size: 14px;
+    }
+    .footer-text{
+        margin-left: 80px; 
+        font-size: 14px;
+    }
   }
