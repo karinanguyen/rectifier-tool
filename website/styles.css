@@ -335,3 +335,19 @@ canvas {
   .use-cases {
       margin-bottom: 100px;
   }
+
+  .question {
+    margin-bottom: 60px;
+    font-family: "Fin-Reg";
+    line-height: 0.5em;
+    font-size: 24px; 
+    letter-spacing: 0.5px;
+  }
+
+  h5 {
+      line-height: 1.2em;
+  }
+
+  h3 {
+      line-height: 1.3em;
+  }

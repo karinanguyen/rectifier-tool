@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <link type="text/css" href="/static/styles.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Rectify</title>
+</head>
+
+<main>
+
+    <header>
+        <nav class='topnav'>
+            <img src="/static/rectify-logo.png" style="height: 60px" />
+            <div class="right-nav">
+                <a href="mailto:karinanguyen@berkeley.edu"> Contact </a>
+                <a href="">FAQ</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <div class="name">
+        <h1> Rectify </h1>
+    </div>
+
+    <div class="row">
+        <div class="column left">
+            <p class='decorator'>/ˈrektəˌfī/</p>
+        </div>
+        <div class="column right">
+
+            <div class="question">
+                <h3> What happens to uploaded or rectified images. Are they stored somewhere? </h3>
+                <h5> Images and geometric data are deleted from our servers immediately after processing. The tool uses standard SSL certificate for security. We do not track your actions, geolocation, or times of usage. 
+
+                    <!-- It is secure if you choose to upload graphic content or imagery of high risks such as the ones that include witnesses. </h5> -->
+            </div>
+
+            <div class="question">
+                <h3> I am thinking of using this tool for my investigations, or I would like to include this tool as a part
+                    of a methodology for a legal court filing or report. What should I know before using it? </h3>
+                <!-- <h5> You should know that none of the images you upload or rectified are stored anywhere, so it is secure if you
+                    choose to upload graphic content or imagery of high risks such as the ones that include witnesses.--><h5>
+                    You should know that none of the images you upload or rectified are stored after processing. 
+                    It is important to know that neither pixels' colors are distorted nor new pixel values are introduced; all color data in rectified
+                    images preserve their original states, so you can reliably use it as a part of methodology for
+                    legal purposes. However, the algorithm tries to preserve the aspect ratio of original images and,
+                    therefore, stretches out objects or sometimes blacks out sections for which no pixels
+                    exist in the original image. Therefore, you can't rely on estimating sizes of objects through this tool — it is not its original goal.</h5>
+            </div>
+
+            <div class="question">
+                <h3> What does it do? </h3>
+                <h5> Rectification is a transformation process that projects an original image onto a new plane to form a geometrically perspective-corrected image. It is mostly used in 
+                    remote sensing / geospatial industries, but becomes very handy for OSINT purposes and evidence analysis.
+                </h5>
+            </div> 
+
+            <div class="question">
+                <h3> What's the right order of choosing the area of interest? </h3>
+                <h5> Ordering of points matters as it would rotate the rectified image accordingly. First, make sure you are choosing in clock-wise / counter-clockwise order. 
+                    The recommended path is upper left, lower left, lower right, upper right. 
+                </h5>
+                <!-- GIF Example  -->
+            </div>
+
+            <div class="question">
+                <h3> Is this tool open-source? If so, why? </h3>
+                <h5> Yes. You can find code on the Github here. We believe that open-source research and counter-forensics community 
+                </h5>
+            </div>  
+
+        </div>
+
+    </div>
+</main>
+<footer id="footer">
+    <!-- <hr style="max-width: 75%; opacity: 0.5;">  -->
+
+    <div class="footer-text">
+        <div class='footer-text-1'>
+            <img src="/static/rectify-logo-white.png" style="height: 20px" />
+            <p style="margin-left: 10px"> Rectify - by <a href="https://twitter.com/karinanguyen_" style="color:white"
+                    target="blank_"> Karina Nguyen </a></p>
+        </div>
+        <p style="margin-top: -2px;"> @2022 VCFLab </p>
+    </div>
+
+</footer>
+<script src="/static/script.js"></script>
+
+</html>
