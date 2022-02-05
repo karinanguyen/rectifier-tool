@@ -14,7 +14,7 @@
         <nav class='topnav'>
             <img src="/static/rectify-logo.png" style="height: 60px" />
             <div class="right-nav">
-                <a href=""> About </a>
+                <a href="mailto:karinanguyen@berkeley.edu"> Contact </a>
                 <a href="">How does it work</a>
             </div>
         </nav>
@@ -31,14 +31,35 @@
         </div>
         <div class="column right">
             <div class="description">
-                <p>Look at visual details in imagery from a new perspective.</p>
+                <p>Look at visual details from a new perspective.</p>
                 <p>This simple tool is particularly useful for visual investigations and evidence verification in
                 open-source research.</p>
             </div>
 
-            <h3 class="cases">Case: Syrian Hospital</h3>
+            <div class="use-cases">
+                <div class="use-case-one">
+                    <h3 class="cases">Case: Syrian Hospital</h3>
+                    <img src="/static/syria-ex.png" style="height: 300px"/> 
+                </div>
+                <div class="use-case-one"> 
+                    <h3 class="cases" style="text-align: right; margin-right: 150px;">Case: Parisian Windows and Art</h3> 
+                    <img src="/static/pari-ex.png" style="height: 300px"/>  
+                </div>
+            </div>
+                
 
             <h3 class="try">Try it yourself! </h3>
+            <div class="instructions">
+                <p> Notes:</p>
+                <ul>
+                    <li class = "list-item"> Choose 4 points on the image to identify the area of interest in a sequential order (as if you would draw a square without lifting pencil) </li>
+                    <li class = "list-item"> Make sure you are uploading color images. Grayscale is not supported yet! </li> 
+                    <li class = "list-item"> If you are facing issues or have questions, feel free to <a href="https://twitter.com/karinanguyen_" style="text-decoration: none; color:rgb(52, 52, 235); ">reach out.</a></li>  
+                </ul> 
+            </div>
+ 
+
+            <!-- TODO: Instructions  -->
 
             <form method=post enctype=multipart/form-data action="/rectify">
                 <div class="drop-image">
@@ -75,7 +96,7 @@
     <div class = "footer-text"> 
         <div class = 'footer-text-1'> 
             <img src="/static/rectify-logo-white.png" style="height: 20px" /> 
-            <p style="margin-left: 10px"> Rectify - by Karina Nguyen </p> 
+            <p style="margin-left: 10px"> Rectify - by <a href="https://twitter.com/karinanguyen_" style="color:white" target="blank_"> Karina Nguyen </a></p> 
         </div>
         <p style="margin-top: -2px;"> @2022 VCFLab </p>  
     </div>

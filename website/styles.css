@@ -31,7 +31,7 @@ body {
 main{
     width: 70%;
     margin: 0 auto; 
-    margin-bottom: 150px;
+    margin-bottom: 400px;
 }
 
 
@@ -312,4 +312,26 @@ canvas {
   
   @keyframes db4-2 {
     100% {top:-0.1px}
+  }
+
+  .use-case-one {
+      margin-bottom: 60px;
+  }
+
+  .instructions {
+    font-family: 'IBM Plex Mono', monospace; 
+    color: #6e6e72;
+    max-width: 800px;
+    margin-bottom: 60px;
+    font-size: 17px;
+    font-style: italic;
+  }
+
+  .list-item {
+      margin-bottom: 12px;
+  }
+
+
+  .use-cases {
+      margin-bottom: 100px;
   }
