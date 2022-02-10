@@ -6,6 +6,15 @@
     <link type="text/css" href="/static/styles.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Rectify</title>
+
+
+        <!-- Twitter Card (large image card) tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta name="twitter:creator" content="@karinanguyen_">
+        <meta name="twitter:title" content="Rectify | Tool for Visual Investigations.">
+        <meta name="twitter:description"
+            content="Look at visual details in a new perspective." />
+        <meta name="twitter:image" content="rectify.vcflab.org/static/cover.png" /> 
 </head>
 
 <main>
@@ -38,7 +47,7 @@
                     open-source research.</p>
             </div>
 
-            <h3 class="try">Try it yourself! </h3>
+            <h3 class="try" id='try-new'>Try it yourself! </h3>
 
             <section>
                 <article>
@@ -83,9 +92,10 @@
             </form>
 
             <div id='load' class="loading"></div>
-            <button id="restart" onClick="window.location.reload();">Start New</button>
+            <!-- replace('/#try-new')  -->
+            <button id="restart" onClick="refreshPage()">Start New</button>
 
-
+        
 
             <div class = 'second-part'>
                 <h3 class="try">Examples </h3> 
@@ -121,6 +131,12 @@
     </div>
 
 </footer>
+<script> 
+function refreshPage(){
+    // window.location.hash = '#try-new'; 
+    window.location.reload();
+} 
+</script>
 <script src="/static/script.js"></script>
 
 </html>
