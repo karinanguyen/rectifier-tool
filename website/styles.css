@@ -226,12 +226,12 @@ footer {
 }
 
 
-input[type='submit']{
+#submit{
     display: none;
     margin-top: 10px;
 } 
 
-input[type=submit], #restart {
+#submit, #restart {
     padding: 9px 30px;
     background: #0A20E8;
     border: 0 none;
@@ -244,7 +244,7 @@ input[type=submit], #restart {
     transition: all 0.3s ease 0s;
 } 
 
-input[type=submit]:hover, #restart:hover {
+#submit:hover, #restart:hover {
     background-color: #A7F208;
     color: #fff;
     transform: translateY(-3px);
@@ -379,7 +379,6 @@ canvas {
   summary::-webkit-details-marker {
     font-size: 15px;
     margin-right: 2px;
-
    }
    summary:focus {
        outline-style: none;
