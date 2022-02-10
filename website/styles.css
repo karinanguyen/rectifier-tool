@@ -228,7 +228,7 @@ footer {
 
 input[type='submit']{
     display: none;
-    margin-top: 30px;
+    margin-top: 10px;
 } 
 
 input[type=submit], #restart {
@@ -253,7 +253,7 @@ input[type=submit]:hover, #restart:hover {
 
 #restart {
     display: none;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 50px;
 }
 
@@ -349,6 +349,12 @@ canvas {
   }
 
   @media only screen and (max-width: 600px) { 
+    .left {
+        display: none; 
+    }
+    .right {
+        width: 100%;
+    }
     .decorator{
         display: none;
     }
@@ -359,4 +365,52 @@ canvas {
         margin-left: 80px; 
         font-size: 14px;
     }
+    .second-part {
+        margin-top: 30px;
+    } 
+    main {
+        margin-bottom: 150px; 
+    }
+    .name{
+        margin-left: 10px;
+    }
   }
+
+  summary::-webkit-details-marker {
+    font-size: 15px;
+    margin-right: 2px;
+
+   }
+   summary:focus {
+       outline-style: none;
+
+   }
+   article > details > summary {
+       font-size: 18px;
+       margin-top: 16px;
+
+   }
+   details > li {
+       margin-left: 24px;
+   }
+   details details {
+       margin-left: 36px;
+
+   }
+   details details summary {
+       font-size: 20px;
+
+   }
+
+   section {
+       margin-bottom: 30px;
+       font-family: 'IBM Plex Mono', monospace; 
+       /* color:  #383636ad;  */
+       /* color: #1404c5a1;  */
+       /* color: #160c83ce;  */
+       color: rgb(26, 29, 201)
+   }
+
+.second-part {
+    margin-top: 140px;
+}

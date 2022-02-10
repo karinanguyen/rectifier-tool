@@ -22,7 +22,9 @@
 
 
     <div class="name">
-        <a href="/static/index.html" style="text-decoration: none; color: inherit;"><h1> Rectify </h1></a>
+        <a href="/static/index.html" style="text-decoration: none; color: inherit;">
+            <h1> Rectify </h1>
+        </a>
     </div>
 
     <div class="row">
@@ -31,41 +33,34 @@
         </div>
         <div class="column right">
             <div class="description">
-                <p>Look at visual details from a new perspective.</p>
+                <p style='margin-bottom:-10px;'> Look at visual details from a new perspective.</p>
                 <p>This simple tool is particularly useful for visual investigations and evidence verification in
                     open-source research.</p>
             </div>
 
-            <div class="use-cases">
-                <div class="use-case-one">
-                    <h3 class="cases">Case: Syrian Hospital</h3>
-                    <img src="/static/syria-ex.png" style="max-width:100%;height:auto;" />
-                </div>
-                <div class="use-case-one">
-                    <h3 class="cases" style="text-align: right;">Case: Parisian Windows and Art
-                    </h3>
-                    <img src="/static/pari-ex.png" style="max-width:100%;height:auto;" />
-                </div>
-            </div>
-
-
             <h3 class="try">Try it yourself! </h3>
-            <div class="instructions">
-                <p> Notes:</p>
-                <ul>
-                    <li class="list-item"> Choose 4 points on the image to identify the area of interest in a clockwise
-                        order (as if you would draw a square without lifting pencil). Order matters as it would rotate
-                        the rectified image accordingly. </li>
-                    <li class="list-item"> Afterwards, click on Rectify button and the loading animation will appear.
-                        Supported file formats: jpeg, jpg, png.</li>
-                    <li class="list-item"> Make sure you are uploading color images. Grayscale is not supported yet!
-                    </li>
-                    <li class="list-item"> Learn more about the <a href="https://rectify.vcflab.org/static/faq.html"
-                        style="text-decoration: none; color:rgb(52, 52, 235); " target="blank_">tool and processing</a>. If you are facing issues or have questions, feel free to <a
-                            href="https://twitter.com/karinanguyen_"
-                            style="text-decoration: none; color:rgb(52, 52, 235); " target="blank_">reach out.</a></li>
-                </ul>
-            </div>
+
+            <section>
+                <article>
+                    <details>
+                        <summary>Notes & Instructions</summary>
+                        <ul>
+                            <li class="list-item"> Choose 4 points on the image to identify the area of interest in a clockwise
+                                order (as if you would draw a square without lifting pencil). Order matters as it would rotate
+                                the rectified image accordingly. </li>
+                            <li class="list-item"> Afterwards, click on Rectify button and the loading animation will appear.
+                                Supported file formats: jpeg, jpg, png.</li>
+                            <li class="list-item"> Make sure you are uploading color images. Grayscale is not supported yet!
+                            </li>
+                            <li class="list-item"> Learn more about the <a href="https://rectify.vcflab.org/static/faq.html"
+                                    style="text-decoration: none;" target="blank_"> <mark style="background-color:#aeff0ec7">tool and
+                                        processing</mark></a>. If you are facing issues or have questions, feel free to <a
+                                    href="https://twitter.com/karinanguyen_"
+                                    style="text-decoration: none;" target="blank_"><mark style="background-color:#aeff0ec7">reach out.</mark></a></li>
+                        </ul>
+                    </details>
+                </article>
+            </section>
 
             <form method=post enctype=multipart/form-data action="/rectify">
                 <div class="drop-image">
@@ -89,6 +84,25 @@
             <button id="restart" onClick="window.location.reload();">Start New</button>
 
 
+
+            <div class = 'second-part'>
+                <h3 class="try">Examples </h3> 
+
+                <div class="use-cases">
+                    <div class="use-case-one">
+                        <h3 class="cases">Case: Syrian Hospital</h3>
+                        <img src="/static/syria-ex.png" style="max-width:90%;" />
+                    </div>
+                    <div class="use-case-one">
+                        <h3 class="cases" style="text-align: right;">Case: Parisian Windows and Art
+                        </h3>
+                        <img src="/static/pari-ex.png" style="max-width:100%;" />
+                    </div>
+                </div>
+                
+            </div>
+
+
         </div>
 
     </div>
@@ -98,7 +112,7 @@
     <div class="footer-text">
         <div class='footer-text-1'>
             <img src="/static/rectify-logo-white.png" style="height: 20px" />
-            <p style="margin-left: 10px"> Rectify - by <a href="https://twitter.com/karinanguyen_" style="color:white"
+            <p style='color: white;  margin-left: 10px; '> Rectify - by <a href="https://twitter.com/karinanguyen_" style="color:white"
                     target="blank_"> Karina Nguyen </a></p>
         </div>
         <p style="margin-top: -2px;"> @2022 VCFLab </p>
