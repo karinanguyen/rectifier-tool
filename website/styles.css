@@ -215,9 +215,6 @@ footer {
     margin-left: 230px;
     font-family:  'IBM Plex Mono', monospace; 
     letter-spacing: -0.5px;
-    /* display: flex;
-    align-items: center;
-    justify-content: space-around;    */
 
 }
 .footer-text-1 {
@@ -227,6 +224,7 @@ footer {
 
 
 #submit{
+    -webkit-apperance: none;
     display: none;
     margin-top: 10px;
 } 
@@ -404,9 +402,6 @@ canvas {
    section {
        margin-bottom: 30px;
        font-family: 'IBM Plex Mono', monospace; 
-       /* color:  #383636ad;  */
-       /* color: #1404c5a1;  */
-       /* color: #160c83ce;  */
        color: rgb(26, 29, 201)
    }
 
